@@ -35,7 +35,8 @@ antigen bundle <<EOBUNDLES
 EOBUNDLES
 
 # Load the theme
-antigen theme agnoster
+#antigen theme agnoster
+antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
 
 # Tell antigen that you're done
 antigen apply
