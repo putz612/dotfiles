@@ -1,8 +1,16 @@
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+ADOTDIR=$HOME/.antigen
+# Download and install antigen if it doesn't exist
+if [ ! -f "$ADOTDIR/antigen/antigen.zsh" ]; then
+	echo "zsh antigen not installed - cloning..."
+	mkdir -p "$ADOTDIR"
+	git clone https://github.com/zsh-users/antigen "$ADOTDIR/antigen"
+fi
 
-source $HOME/.antigen/antigen.zsh
+# Install antigen plugins
+source "$ADOTDIR/antigen/antigen.zsh"
     
 # Load the oh-my-zsh's library
 antigen use oh-my-zsh
@@ -18,6 +26,12 @@ antigen bundle <<EOBUNDLES
 
 	# Extra zsh completions
 	zsh-users/zsh-completions
+
+	docker
+	history
+	colored-man-pages
+	command-not-found
+	ssh-agent
 EOBUNDLES
 
 # Load the theme
